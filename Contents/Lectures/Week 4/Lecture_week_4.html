@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lecture 4</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+                title: 'Lecture 4',
+                        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+                        favIcon: 'Lecture_week_4_files/logo.png',
+              },
+
+      // Author information
+      presenters: [
+            {
+        name:  'Data Visualization (pt.1)' ,
+        company: '',
+        gplus: '',
+        twitter: '',
+        www: '',
+        github: ''
+      },
+            ]
+    };
+  </script>
+
+  <script src="Lecture_week_4_files/header-attrs-2.20/header-attrs.js"></script>
+  <link href="Lecture_week_4_files/ioslides-13.5.1/fonts/fonts.css" rel="stylesheet" />
+  <link href="Lecture_week_4_files/ioslides-13.5.1/theme/css/default.css" rel="stylesheet" />
+  <link href="Lecture_week_4_files/ioslides-13.5.1/theme/css/phone.css" rel="stylesheet" />
+  <script src="Lecture_week_4_files/ioslides-13.5.1/js/modernizr.custom.45394.js"></script>
+  <script src="Lecture_week_4_files/ioslides-13.5.1/js/prettify/prettify.js"></script>
+  <script src="Lecture_week_4_files/ioslides-13.5.1/js/prettify/lang-r.js"></script>
+  <script src="Lecture_week_4_files/ioslides-13.5.1/js/prettify/lang-yaml.js"></script>
+  <script src="Lecture_week_4_files/ioslides-13.5.1/js/hammer.js"></script>
+  <script src="Lecture_week_4_files/ioslides-13.5.1/js/slide-controller.js"></script>
+  <script src="Lecture_week_4_files/ioslides-13.5.1/js/slide-deck.js"></script>
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    summary {
+      display: list-item;
+    }
+
+    details > summary > p:only-child {
+      display: inline;
+    }
+
+    slides > slide {
+      -webkit-transition: all 0.2s ease-in-out;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: 0.2s;
+      -moz-transition: opacity 0.6s ease-in 0.2s;
+      -o-transition: opacity 0.6s ease-in 0.2s;
+      transition: opacity 0.6s ease-in 0.2s;
+      opacity: 0;
+    }
+/* https://github.com/ropensci/plotly/pull/524#issuecomment-468142578 */
+slide:not(.current) .plotly.html-widget{
+  display: block;
+}
+
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+            pre > code.sourceCode { white-space: pre; position: relative; }
+            pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+            pre > code.sourceCode > span:empty { height: 1.2em; }
+            .sourceCode { overflow: visible; }
+            code.sourceCode > span { color: inherit; text-decoration: inherit; }
+            div.sourceCode { margin: 1em 0; }
+            pre.sourceCode { margin: 0; }
+            @media screen {
+            div.sourceCode { overflow: auto; }
+            }
+            @media print {
+            pre > code.sourceCode { white-space: pre-wrap; }
+            pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+            }
+            pre.numberSource code
+              { counter-reset: source-line 0; }
+            pre.numberSource code > span
+              { position: relative; left: -4em; counter-increment: source-line; }
+            pre.numberSource code > span > a:first-child::before
+              { content: counter(source-line);
+                position: relative; left: -1em; text-align: right; vertical-align: baseline;
+                border: none; display: inline-block;
+                -webkit-touch-callout: none; -webkit-user-select: none;
+                -khtml-user-select: none; -moz-user-select: none;
+                -ms-user-select: none; user-select: none;
+                padding: 0 4px; width: 4em;
+                color: #aaaaaa;
+              }
+            pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+            div.sourceCode
+              {   }
+            @media screen {
+            pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+            }
+            code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+            code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+            code span.at { color: #7d9029; } /* Attribute */
+            code span.bn { color: #40a070; } /* BaseN */
+            code span.bu { color: #008000; } /* BuiltIn */
+            code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+            code span.ch { color: #4070a0; } /* Char */
+            code span.cn { color: #880000; } /* Constant */
+            code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+            code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+            code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+            code span.dt { color: #902000; } /* DataType */
+            code span.dv { color: #40a070; } /* DecVal */
+            code span.er { color: #ff0000; font-weight: bold; } /* Error */
+            code span.ex { } /* Extension */
+            code span.fl { color: #40a070; } /* Float */
+            code span.fu { color: #06287e; } /* Function */
+            code span.im { color: #008000; font-weight: bold; } /* Import */
+            code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+            code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+            code span.op { color: #666666; } /* Operator */
+            code span.ot { color: #007020; } /* Other */
+            code span.pp { color: #bc7a00; } /* Preprocessor */
+            code span.sc { color: #4070a0; } /* SpecialChar */
+            code span.ss { color: #bb6688; } /* SpecialString */
+            code span.st { color: #4070a0; } /* String */
+            code span.va { color: #19177c; } /* Variable */
+            code span.vs { color: #4070a0; } /* VerbatimString */
+            code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+        
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      background: url(Lecture_week_4_files/logo.png) no-repeat 0 50%;
+      -webkit-background-size: 30px 30px;
+      -moz-background-size: 30px 30px;
+      -o-background-size: 30px 30px;
+      background-size: 30px 30px;
+      padding-left: 40px;
+      height: 30px;
+      line-height: 1.9;
+    }
+  </style>
+
+
+</head>
+
+<body style="opacity: 0">
+
+<slides>
+
+  <slide class="title-slide segue nobackground">
+        <aside class="gdbar"><img src="Lecture_week_4_files/logo.png"></aside>
+        <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+          </hgroup>
+  </slide>
+
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Recap of Last Week</h2></hgroup><article  id="recap-of-last-week" class="smaller ">
+
+</article></slide><slide class=""><hgroup><h2>Recap Lecture 3</h2></hgroup><article  id="recap-lecture-3" class="smaller ">
+
+<ul>
+<li>What is data wrangling?</li>
+<li>Tidyverse package + pipe operator</li>
+<li>Tidying data
+
+<ul>
+<li>Renaming, dates and times, pivot longer and wider</li>
+</ul></li>
+<li>Data manipulation
+
+<ul>
+<li>Head, tail</li>
+<li>Filter, select, arrange</li>
+<li>Grouping, summarizing, mutating</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Outline of Lecture 4</h2></hgroup><article  id="outline-of-lecture-4" class="smaller ">
+
+</article></slide><slide class=""><hgroup><h2>Outline of Lecture 4</h2></hgroup><article  id="outline-of-lecture-4-1" class="smaller ">
+
+<ul>
+<li>How to tell a story with data
+
+<ul>
+<li>5 steps of data analysis</li>
+</ul></li>
+<li>Introduction into visualization</li>
+<li>Visualization in R
+
+<ul>
+<li>Base R graphs</li>
+<li><code>ggplot2</code></li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Steps of Data Analysis</h2></hgroup><article  id="steps-of-data-analysis" class="smaller ">
+
+<center>
+
+<img src="figures/programming_steps.png" alt="HTML5 Icon" width = 95%>
+
+</center>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Story Telling with Data</h2></hgroup><article  id="story-telling-with-data" class="smaller ">
+
+</article></slide><slide class=""><hgroup><h2>5 Steps of Data Analysis</h2></hgroup><article  id="steps-of-data-analysis-1" class="smaller ">
+
+<ol>
+<li>Ask</li>
+<li>Collect and understand</li>
+<li>Clean</li>
+<li>Analyze</li>
+<li>Tell your story</li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>1. Ask</h2></hgroup><article  id="ask" class="smaller ">
+
+<ol>
+<li>What is the question your research will answer?</li>
+<li>Why is your data interesting?</li>
+<li>What do you think will be interesting things to show?</li>
+<li>Hypothesize: what story do I expect my data will tell</li>
+<li>What tables/figures do I think might be interesting to create? (without having looked at the data)</li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>2. Collect and understand</h2></hgroup><article  id="collect-and-understand" class="smaller ">
+
+<ol>
+<li>Collect the data</li>
+<li>Understand how the data is generated (very precisely)</li>
+<li>Understand what all the variables really mean</li>
+<li>Ask questions to yourself to check whether you fully understand every aspect of your data</li>
+<li><em>Visualize</em> your data to get a feeling of what stories the data might tell</li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>3. Clean</h2></hgroup><article  id="clean" class="smaller ">
+
+<ol>
+<li>Import the data into the program you will use for analyzing - <code>R</code></li>
+<li>Perform checks on the data (missing values, outliers, summary statistics)</li>
+<li>Question the outcome of all your checks, does any cleaning need to be done?</li>
+<li>Clean the data based on the careful analysis you did</li>
+<li>Make sure the data is in the correct format for you to analyze</li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>4. Analyze</h2></hgroup><article  id="analyze" class="smaller ">
+
+<ol>
+<li>Step away from your data and write a list of tables you want to create - Practical</li>
+<li>Step away from your data and draw rough sketches of the figures you want to create - Practical</li>
+<li>Do the first step data analysis: create simple summary statistics, as well as the first and easiest tables and figures - Practical</li>
+<li>Identify patterns and re-think which story you think the data tells, change / add to your list of tables and figures</li>
+<li>Do the next step of data analysis: play around with your data and create additional tables/figures based on the story that your data seems to tell, make sure to also play around with different ways of visualization</li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>5. Tell your story</h2></hgroup><article  id="tell-your-story" class="smaller ">
+
+<ol>
+<li>Finalize your data analysis: create the final tables and visualizations that tell the story in the best way</li>
+<li>Choose which tables and figures to include and in which order</li>
+<li>Critically assess the way that you have presented your data: is it all correct, is it easy to understand, is there a story to be told?</li>
+<li>Draw conclusions, the story to be told is first of all what can be seen from the data and secondly what the following policy recommendations are</li>
+<li>Present the data in your report and make sure you are easily able to explain the main findings in 1 minute</li>
+</ol>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Application of the 5 Steps of Data Analysis</h2></hgroup><article  id="application-of-the-5-steps-of-data-analysis" class="smaller ">
+
+</article></slide><slide class=""><hgroup><h2>Applying the 5 Steps</h2></hgroup><article  id="applying-the-5-steps" class="smaller ">
+
+<ul>
+<li>Can you apply these 5 steps to your own project?
+
+<ul>
+<li>Ask</li>
+<li>Collect and understand</li>
+<li>Clean</li>
+<li>Analyze</li>
+<li>Tell your story</li>
+</ul></li>
+<li>Which steps have you taken?</li>
+<li>Which steps have you not yet taken?</li>
+<li>What have you learnt from these 5 steps?</li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Introduction into Visualization</h2></hgroup><article  id="introduction-into-visualization" class="smaller ">
+
+</article></slide><slide class=""><hgroup><h2>Introduction into visualization</h2></hgroup><article  id="introduction-into-visualization-1" class="smaller ">
+
+<ul>
+<li>Importance of vizualization</li>
+<li>In which steps do you use visualizations?</li>
+<li>Exploratory graphs</li>
+<li>Illustrative graphs</li>
+<li>What type of graphs are you going to make?</li>
+<li>What type of graphs will be in your report/presentation?</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Why Visualize?</h2></hgroup><article  id="why-visualize" class="smaller ">
+
+<p><img src="figures/DataSaurus.gif" style="display:block;width:90%;margin:0 auto;"></img></p>
+
+<p style="text-align:center;font-style:italic;font-size:0.5em;">
+
+Source: <a href='https://www.autodeskresearch.com/publications/samestats' title=''>https://www.autodeskresearch.com/publications/samestats</a>
+
+</p>
+
+</article></slide><slide class=""><hgroup><h2>Exploratory graphs</h2></hgroup><article  id="exploratory-graphs" class="smaller ">
+
+<ul>
+<li>Understanding your data</li>
+<li>Describing data</li>
+<li>Detect patterns</li>
+<li>Validation checks on data</li>
+<li>Use for yourself / internally</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Illustrative graphs</h2></hgroup><article  id="illustrative-graphs" class="smaller ">
+
+<ul>
+<li>Illustrating a conclusion</li>
+<li>Telling a story with the data</li>
+<li>For publication / to share</li>
+<li>Require more effort!
+
+<ul>
+<li>Axis titles</li>
+<li>Labels</li>
+<li>Colors</li>
+<li>etc.</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Visualization in R</h2></hgroup><article  id="visualization-in-r" class="smaller ">
+
+</article></slide><slide class=""><hgroup><h2>Graphical Systems in R</h2></hgroup><article  id="graphical-systems-in-r" class="smaller ">
+
+<ul>
+<li>Standard graphics package - in <code>base R</code></li>
+<li><code>ggplot2</code> package</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Base R</h2></hgroup><article  id="base-r" class="smaller ">
+
+<ul>
+<li>Not going to use this much</li>
+<li>Very basic package for visualizations</li>
+<li>Often easier + more convenient to use <code>ggplot2</code>!</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Histogram in base R</h2></hgroup><article  id="histogram-in-base-r" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>hist(ChickWeight$weight)</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-1-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Boxplot in base R</h2></hgroup><article  id="boxplot-in-base-r" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>boxplot(weight ~ Diet, data = ChickWeight)</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-2-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Scatterplot in base R</h2></hgroup><article  id="scatterplot-in-base-r" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>plot(x = ChickWeight$Time, y = ChickWeight$weight)</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-3-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Different Types of Charts</h2></hgroup><article  id="different-types-of-charts" class="smaller ">
+
+<p><a href='https://r-graph-gallery.com/' title=''>https://r-graph-gallery.com/</a></p>
+
+<ul>
+<li>Many different types of graphs</li>
+<li>Important to choose the most suitable type</li>
+<li>Try different types to see what works for your data</li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2><code>Ggplot2</code></h2></hgroup><article  id="ggplot2" class="smaller ">
+
+</article></slide><slide class=""><hgroup><h2>Introduction to <code>ggplot2</code></h2></hgroup><article  id="introduction-to-ggplot2" class="smaller ">
+
+<p>Layered plotting based on the book <strong>The Grammar of Graphics</strong> by Leland Wilkinsons.</p>
+
+<p>With <code>ggplot2</code> you</p>
+
+<ol>
+<li>provide the <em>data</em></li>
+<li>define how to map variables to <em>aesthetics</em></li>
+<li>state which <em>geometric object</em> to display</li>
+<li>(optional) edit the overall <em>theme</em> of the plot</li>
+</ol>
+
+<p><code>ggplot2</code> then takes care of the details</p>
+
+</article></slide><slide class=""><hgroup><h2><code>ggplot</code></h2></hgroup><article  id="ggplot" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>ggplot()</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-4-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Data</h2></hgroup><article  id="data" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>ggplot(ChickWeight)</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-5-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Aesthetics</h2></hgroup><article  id="aesthetics" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>ggplot(ChickWeight, aes(x = Time, y = weight))</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-6-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Geometric object</h2></hgroup><article  id="geometric-object" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>ggplot(ChickWeight, aes(x = Time, y = weight)) + 
+  geom_point()</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-7-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>General Rules for <code>ggplot</code></h2></hgroup><article  id="general-rules-for-ggplot" class="smaller ">
+
+<p>ggplot(data = DATA, mapping = aes(MAPPINGS)) + GEOM_FUNCTION()</p>
+
+<p>Add layers with +</p>
+
+<p>Put + at the end of a line</p>
+
+<p>Map aesthetics with aes()</p>
+
+</article></slide><slide class=""><hgroup><h2>Additional Layers</h2></hgroup><article  id="additional-layers" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>extra_layer &lt;- ggplot(ChickWeight,
+       aes(x = Time, 
+           y = weight)) +
+  geom_point() +
+  geom_smooth(color = &quot;blue&quot;) +
+  labs(x = &quot;Time&quot;, y = &quot;Weight&quot;, title = &quot;Chick weight over time&quot;) +
+  theme_minimal()</pre>
+
+</article></slide><slide class=""><hgroup><h2>Additional Layers</h2></hgroup><article  id="additional-layers-1" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>plot(extra_layer)</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-9-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>More advanced plots</h2></hgroup><article  id="more-advanced-plots" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>more_advanced_plot &lt;- ggplot(ChickWeight,
+       aes(x = Time, 
+           y = weight,
+           color = Diet)) +
+  geom_point(alpha = 0.5) +
+  labs(x = &quot;Time&quot;, y = &quot;Weight&quot;,
+       color = &quot;Diet&quot;, title = &quot;Chick weight over time by diet&quot;) +
+  theme_minimal()</pre>
+
+<p>There are many different types of plot you could make! Can you think of more?</p>
+
+</article></slide><slide class=""><hgroup><h2>More advanced plots</h2></hgroup><article  id="more-advanced-plots-1" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>plot(more_advanced_plot)</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-11-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Aesthetics</h2></hgroup><article  id="aesthetics-1" class="smaller ">
+
+<ul>
+<li>x</li>
+<li>y</li>
+<li>size</li>
+<li>colour</li>
+<li>fill</li>
+<li>opacity (alpha)</li>
+<li>linetype</li>
+<li>…</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>New dataset: boys</h2></hgroup><article  id="new-dataset-boys" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>library(mice)     # Boys dataset
+glimpse(boys)</pre>
+
+<pre >## Rows: 748
+## Columns: 9
+## $ age &lt;dbl&gt; 0.035, 0.038, 0.057, 0.060, 0.062, 0.068, 0.068, 0.071, 0.071, 0.0…
+## $ hgt &lt;dbl&gt; 50.1, 53.5, 50.0, 54.5, 57.5, 55.5, 52.5, 53.0, 55.1, 54.5, 58.5, …
+## $ wgt &lt;dbl&gt; 3.650, 3.370, 3.140, 4.270, 5.030, 4.655, 3.810, 3.890, 3.880, 4.2…
+## $ bmi &lt;dbl&gt; 14.54, 11.77, 12.56, 14.37, 15.21, 15.11, 13.82, 13.84, 12.77, 14.…
+## $ hc  &lt;dbl&gt; 33.7, 35.0, 35.2, 36.7, 37.3, 37.0, 34.9, 35.8, 36.8, 38.0, 40.5, …
+## $ gen &lt;ord&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ phb &lt;ord&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ tv  &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ reg &lt;fct&gt; south, south, south, south, south, south, south, west, west, east,…</pre>
+
+</article></slide><slide class=""><hgroup><h2>New dataset: boys</h2></hgroup><article  id="new-dataset-boys-1" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>summary(boys)</pre>
+
+<pre >##       age              hgt              wgt              bmi       
+##  Min.   : 0.035   Min.   : 50.00   Min.   :  3.14   Min.   :11.77  
+##  1st Qu.: 1.581   1st Qu.: 84.88   1st Qu.: 11.70   1st Qu.:15.90  
+##  Median :10.505   Median :147.30   Median : 34.65   Median :17.45  
+##  Mean   : 9.159   Mean   :132.15   Mean   : 37.15   Mean   :18.07  
+##  3rd Qu.:15.267   3rd Qu.:175.22   3rd Qu.: 59.58   3rd Qu.:19.53  
+##  Max.   :21.177   Max.   :198.00   Max.   :117.40   Max.   :31.74  
+##                   NA&#39;s   :20       NA&#39;s   :4        NA&#39;s   :21     
+##        hc          gen        phb            tv           reg     
+##  Min.   :33.70   G1  : 56   P1  : 63   Min.   : 1.00   north: 81  
+##  1st Qu.:48.12   G2  : 50   P2  : 40   1st Qu.: 4.00   east :161  
+##  Median :53.00   G3  : 22   P3  : 19   Median :12.00   west :239  
+##  Mean   :51.51   G4  : 42   P4  : 32   Mean   :11.89   south:191  
+##  3rd Qu.:56.00   G5  : 75   P5  : 50   3rd Qu.:20.00   city : 73  
+##  Max.   :65.00   NA&#39;s:503   P6  : 41   Max.   :25.00   NA&#39;s :  3  
+##  NA&#39;s   :46                 NA&#39;s:503   NA&#39;s   :522</pre>
+
+</article></slide><slide class=""><hgroup><h2>New dataset: boys</h2></hgroup><article  id="new-dataset-boys-2" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>head(boys, 3)</pre>
+
+<pre >##      age  hgt  wgt   bmi   hc  gen  phb tv   reg
+## 3  0.035 50.1 3.65 14.54 33.7 &lt;NA&gt; &lt;NA&gt; NA south
+## 4  0.038 53.5 3.37 11.77 35.0 &lt;NA&gt; &lt;NA&gt; NA south
+## 18 0.057 50.0 3.14 12.56 35.2 &lt;NA&gt; &lt;NA&gt; NA south</pre>
+
+<pre class = 'prettyprint lang-r'>tail(boys, 3)</pre>
+
+<pre >##         age   hgt  wgt   bmi   hc  gen  phb tv   reg
+## 7447 20.780 193.5 75.4 20.13   NA &lt;NA&gt; &lt;NA&gt; NA  west
+## 7451 20.813 189.0 78.0 21.83 59.9 &lt;NA&gt; &lt;NA&gt; NA north
+## 7475 21.177 181.8 76.5 23.14   NA &lt;NA&gt; &lt;NA&gt; NA  east</pre>
+
+</article></slide><slide class=""><hgroup><h2>Aesthetics</h2></hgroup><article  id="aesthetics-2" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>gg &lt;- 
+  boys %&gt;% 
+  filter(!is.na(reg)) %&gt;% 
+  
+  ggplot(aes(x      = hgt, 
+             y      = wgt, 
+             shape  = reg, 
+             colour = age)) +
+  
+  geom_point( alpha = 0.5) +
+  
+  labs(title  = &quot;Trend for boys&quot;,
+       x      = &quot;Height&quot;, 
+       y      = &quot;Weight&quot;, 
+       shape    = &quot;Region&quot;,
+       colour = &quot;Age&quot;) +
+  theme_minimal()</pre>
+
+</article></slide><slide class=""><hgroup><h2>Aesthetics</h2></hgroup><article  id="aesthetics-3" class="smaller ">
+
+<pre class = 'prettyprint lang-r'>plot(gg)</pre>
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-16-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Geoms</h2></hgroup><article  id="geoms" class="smaller ">
+
+<ul>
+<li>geom_point</li>
+<li>geom_bar</li>
+<li>geom_line</li>
+<li>geom_smooth</li>
+<li>geom_histogram</li>
+<li>geom_boxplot</li>
+<li>geom_density</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Geoms: Bar</h2></hgroup><article  id="geoms-bar" class="smaller ">
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-17-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Geoms: Line</h2></hgroup><article  id="geoms-line" class="smaller ">
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-18-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Geoms: Smooth</h2></hgroup><article  id="geoms-smooth" class="smaller ">
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-19-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Geoms: Boxplot</h2></hgroup><article  id="geoms-boxplot" class="smaller ">
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-20-1.png" width="720" style="display: block; margin: auto;" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Facets</h2></hgroup><article  id="facets" class="smaller ">
+
+<p><code>facet_wrap()</code> and <code>facet_grid()</code> divide figures into panels.</p>
+
+<pre class = 'prettyprint lang-r'>boys %&gt;%
+  ggplot(aes(x = age, y = bmi)) +
+  geom_point() +
+  geom_smooth() + 
+  facet_wrap(~ reg)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Facets</h2></hgroup><article  id="facets-1" class="smaller ">
+
+<p><img src="Lecture_week_4_files/figure-html/unnamed-chunk-22-1.png" width="720" /></p>
+
+</article></slide><slide class=""><hgroup><h2>Export Figures</h2></hgroup><article  id="export-figures" class="smaller ">
+
+<p>Easy with <code>ggsave()</code></p>
+
+<pre class = 'prettyprint lang-r'># save as pdf
+ggssave(&quot;plot.pdf&quot;, myplot)
+
+# save as png and specify dimensions 
+ggssave(&quot;plot.png&quot;, myplot, width = 7, height = 5, units=&quot;in&quot;)</pre>
+
+</article></slide><slide class=""><hgroup><h2>Helpful link in RStudio</h2></hgroup><article  id="helpful-link-in-rstudio" class="smaller ">
+
+<p><img src="figures/cheatsheet.png" style="display:block;width:90%;margin:0 auto;"></img></p>
+
+</article></slide><slide class=""><hgroup><h2>Additional Resources</h2></hgroup><article  id="additional-resources" class="smaller ">
+
+<ul>
+<li>R for Data Science</li>
+<li>DataCamp: ggplot 2 courses</li>
+<li>ggplot2: Elegant Graphics for Data Analysis (the official ggplot2 book)</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Data Visualization Principles</h2></hgroup><article  id="data-visualization-principles" class="smaller ">
+
+<ul>
+<li>Simplify and focus</li>
+<li>Increase your text size</li>
+<li>Avoid pie charts, use bar charts</li>
+<li>Avoid line drawings, use fill/color</li>
+<li>Stay 2D</li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>End of Lecture 4</h2></hgroup><article  id="end-of-lecture-4" class="smaller "></article></slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
