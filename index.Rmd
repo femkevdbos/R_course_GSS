@@ -3,22 +3,16 @@ title: "R for Data Analysis"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
-      vertical_layout: scroll
+    vertical_layout: scroll
 ---
   
-  <!-- ```{r setup, include=FALSE} -->
-  <!-- knitr::opts_chunk$set(echo = TRUE) -->
-  <!-- library(vembedr) -->
+# Intro {.sidebar}
   
-  <!-- ``` -->
-  
-  # Intro {.sidebar}
-  
-  This website covers the materials for the course R for Data Analysis for University of Ghana students. It is a one semester course, with a weekly lecture, weekly homework assignments, and a final assignment and presentation.
+This website covers the materials for the course R for Data Analysis for employees and national service personnel of the Ghana Statistical Service. It is a six weeks course, with a weekly lecture, and weekly homework assignments. After this course you should be able to use R for your daily work at GSS.
 
 ---
   
-  <strong>InstructorS: </strong>
+  <strong>Instructors: </strong>
   
   [Femke van den Bos](femke.bos@statsghana.gov.gh)
   
@@ -28,19 +22,19 @@ output:
 
 ---
   
-  Please note that some of the material is adopted from [Steffen Eriksen](https://www.youtube.com/c/SteffensClassroom) (University of Groningen), [Laurent Smeets](https://github.com/Laurent-Smeets-GSS-Account/RGhana) (Ghana Statistical Service), [Gerko Vink](https://github.com/gerkovink/R) (Statistics Denmark), [Stan Koobs](https://www.eur.nl/en/people/stan-koobs) (University of Rotterdam), and online resources.
+Please note that Edem Titriku helped setting up this course. Moreover, some of the material is adopted from [Steffen Eriksen](https://www.youtube.com/c/SteffensClassroom) (University of Groningen), [Laurent Smeets](https://github.com/Laurent-Smeets-GSS-Account/RGhana) (Ghana Statistical Service), [Gerko Vink](https://github.com/gerkovink/R) (Statistics Denmark), [Stan Koobs](https://www.eur.nl/en/people/stan-koobs) (University of Rotterdam), and online resources.
 
 ---
-  # Overview
+# Overview
   
-  ## Column 1
+## Column 1
   
-  ### Outline
-  Welcome to our R for Data Analysis Course! 
+### Outline
+Welcome to our R for Data Analysis Course! 
   
-  This comprehensive program will take you from R novice to a skilled data analyst. You'll start by mastering the foundations of R, move on to importing and understanding data, become proficient in data wrangling (including tidying data and data manipulation), learn the art of data visualization, and finally, explore data modeling. 
+This comprehensive program will take you from R novice to a skilled data analyst. You'll start by mastering the foundations of R, move on to importing and understanding data, become proficient in data wrangling (including tidying data and data manipulation), and finally learn the art of data visualization.
 
-Our main goals are to provide you with a solid understanding of R, equip you with data analysis skills, and foster critical thinking to uncover the stories hidden within your data. During the course, you'll get the chance to use real-world data from the Ghana Statistical Service (GSS) in a practical case study. Whether you're new to R or already have some experience, this course is tailored to help you excel in the field of data analysis.
+Our main goals are to provide you with a solid understanding of R, equip you with data analysis skills, and foster critical thinking to uncover the stories hidden within your data. Whether you're new to R or already have some experience, this course is tailored to help you excel in the field of data analysis and enable you to use it during your work at GSS.
 
 
 ## Column 2
@@ -48,12 +42,12 @@ Our main goals are to provide you with a solid understanding of R, equip you wit
 ### Course schedule 
 | Week  | Day | Time      | Topic                               | 
 |:----------|:-------------------------|:--------------|:------------------------------------|
-| *Week 1* |Friday - October 20 |9:00-12:00 | Introduction to R |
-| *Week 2* |Friday - October 27 |9:00-12:00 | Foundations of R |
-| *Week 3* |Friday - November 3 |9:00-12:00 | Data Wrangling |
-| *Week 4* |Friday - November 17 |9:00-12:00 | Data Visualization (pt.1) |
-| *Week 5* |Friday - November 24 |9:00-12:00 | Data Visualization (pt.2) |
-| *Week 6* |Friday - December 1 |9:00-12:00 | Q&A |
+| *Week 1* | Tuesday May 21 |9:00-12:00 | Introduction to R |
+| *Week 2* | Tuesday May 28 |9:00-12:00 | Foundations of R |
+| *Week 3* | Tuesday June 4 |9:00-12:00 | Data Wrangling |
+| *Week 4* | Tuesday June 11 |9:00-12:00 | Data Visualization (pt.1) |
+| *Week 5* | Tuesday June 18 |9:00-12:00 | Data Visualization (pt.2) |
+| *Week 6* | Tuesday June 25 |9:00-12:00 | Q&A |
 
 # Installing R + RStudio
 
@@ -94,7 +88,7 @@ type `Yes` in the console and press the return key.
 ## Column 1
 
 ### Lecture Slides
-Here you can find all the lecture slides. Please note that the first page of the slides shows the date on which the slides were last updated. We adapt the course as we go. To ensure that you work with the latest iteration of the course materials, we advice all course participants to access the materials online.
+Here you can find all the lecture slides. 
 
 - [Lecture 1 - Introduction to R](Contents/Lectures/Week 1/Lecture_week_1.html){target="_blank"}
 - [Lecture 2 - Foundations of R](Contents/Lectures/Week 2/Lecture_week_2.html){target="_blank"}
@@ -107,6 +101,7 @@ Here you can find all the lecture slides. Please note that the first page of the
 ### Useful References
 The following links are useful references that connect to the material: 
   
+- [GSS Visualization Guidelines](https://ghana-statistical-service.github.io/Data_viz_guidelines/graphics-guide.html)
 - [Steffen's Classroom (YouTube videos)](https://www.youtube.com/playlist?list=PLn6B3DUkuU_1iUUe008rXIjG_t3IyzoM3)
 - [`R` for Data Science (2nd edition)](https://r4ds.hadley.nz/)
 - [Statistical Inference via Data Science](https://moderndive.com/index.html)
@@ -127,11 +122,11 @@ Here you can find the assignments for the weekly homework assignments. Please no
 
 The deadline for each assignment is before the next lecture!
 
-- [Assignment 1 (Deadline: Thursday 26-10-2023)](Contents/Assignments/Week 1 Assignment.pdf)
-- [Assignment 2 (Deadline: Thursday 02-11-2023)](Contents/Assignments/Week 2 Assignment.pdf)
-- [Assignment 3 (Deadline: Thursday 09-11-2023)](Contents/Assignments/Week 3 Assignment.pdf)
-- [Assignment 4 (Deadline: Thursday 23-11-2023)](Contents/Assignments/Week 4 Assignment.pdf)
-- [Assignment 5 (Deadline: Thursday 30-11-2023)](Contents/Assignments/Week 5 Assignment.pdf)
+- [Assignment 1 (Deadline: TBD)](Contents/Assignments/Week 1 Assignment.pdf)
+- [Assignment 2 (Deadline: TBD)](Contents/Assignments/Week 2 Assignment.pdf)
+- [Assignment 3 (Deadline: TBD)](Contents/Assignments/Week 3 Assignment.pdf)
+- [Assignment 4 (Deadline: TBD)](Contents/Assignments/Week 4 Assignment.pdf)
+- [Assignment 5 (Deadline: TBD)](Contents/Assignments/Week 5 Assignment.pdf)
 
 
 ### Data
@@ -146,8 +141,8 @@ The data that should be used for the assignments can be found here.
 ### Solutions to Assignments
 After the weekly deadline, the solution to the assignment will be uploaded here. (This will be after the following lecture.)
 
-- [Solution Assignment 1](Contents/Assignments/Assignment-Week-One-Solutions.html){target="_blank"}
-- [Solution Assignment 2](Contents/Assignments/Assignment-Week-Two-Solutions.html){target="_blank"}
-- [Solution Assignment 3](Contents/Assignments/Assignment-week-three-solutions.html){target="_blank"}
-- [Solution Assignment 4](Contents/Assignments/Assignment-four-solutions.html){target="_blank"}
+<!-- - [Solution Assignment 1](Contents/Assignments/Assignment-Week-One-Solutions.html){target="_blank"} -->
+<!-- - [Solution Assignment 2](Contents/Assignments/Assignment-Week-Two-Solutions.html){target="_blank"} -->
+<!-- - [Solution Assignment 3](Contents/Assignments/Assignment-week-three-solutions.html){target="_blank"} -->
+<!-- - [Solution Assignment 4](Contents/Assignments/Assignment-four-solutions.html){target="_blank"} -->
 

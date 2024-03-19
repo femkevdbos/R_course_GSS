@@ -85,8 +85,8 @@ This course is an introduction to R: focused on teaching you how to **analyse da
 - Final Q&A session
 
 ## Timeline
-- Lecture: week 1-5 on Thursday, 09:00-10:30 
-- Practical: week 1-5 on Thursday 10:30-12:00 (after lecture)
+- Lecture: week 1-5 on Tuesday, 09:00-10:30 
+- Practical: week 1-5 on Tuesday 10:30-12:00 (after lecture)
 - Additional Q&A session (in week 6 most likely)
 
 ## Course Schedule
@@ -277,20 +277,6 @@ We are not going to learn a list of functions that exist, but during the course 
 - Use Google/ChatGPT
 - Ask the lecturer/teaching assistant
 - Do not be afraid to try!! Just write code and see if it works!
-
-# GSS Data
-
-## How to access GSS data?
-- GSS Data required for the final assignment
-- Main website: https://statsghana.gov.gh
-  - Look at published reports
-  - Which areas are still unexplored?
-- Microdata: https://microdata.statsghana.gov.gh
-  - Choose data that interests you
-  - Request data ASAP
-- Statsbank: https://statsbank.statsghana.gov.gh
-  - Already generates tables
-  - First insights into data
     
 # Course Website
 

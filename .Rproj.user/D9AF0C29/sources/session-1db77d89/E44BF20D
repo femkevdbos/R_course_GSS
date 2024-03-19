@@ -3,7 +3,7 @@
     "path": "C:/Users/femke/Documents/ODI fellowship - Ghana/Work/test/R_course_GSS/index.Rmd",
     "project_path": "index.Rmd",
     "type": "r_markdown",
-    "hash": "2070644336",
+    "hash": "1536464069",
     "contents": "",
     "dirty": false,
     "created": 1710861062661.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled2",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "55,50",
-        "scrollLine": "49"
+        "cursorPosition": "10,279",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1710862950,
+    "lastKnownWriteTime": 1710868751,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1710862950710,
+    "last_content_update": 1710868751071,
     "read_only": false,
     "read_only_alternatives": []
 }
