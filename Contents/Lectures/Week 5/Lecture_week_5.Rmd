@@ -130,6 +130,22 @@ plot_with_theme
 
 # Tips
 
+## Data Visualization Principles 
+- Simplify and focus
+- Increase your text size
+- Avoid pie charts, use bar charts
+- Avoid line drawings, use fill/color
+- Stay 2D
+
+## GSS Styleguide + R Visualizations
+- The GSS Data Science Team has made an amazing styleguide
+- Using a consistent GSS style for all reports
+- Becomes very easy in R!
+- They developed a theme that you can copy into R
+- And many example graphs including code!
+
+https://ghana-statistical-service.github.io/Data_viz_guidelines/graphics-guide.html 
+
 ## Practice makes perfect
 - Always make a sketch on a piece of paper before programming
 - Do not be afraid to try new things in R

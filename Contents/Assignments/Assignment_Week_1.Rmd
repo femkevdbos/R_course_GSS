@@ -1,0 +1,52 @@
+---
+title: "Assignment Week 1"
+date: "Deadline: Before the next session"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+This is your first R assignment. In this assignment you will start by installing R and RStudio and starting to write your first own code. Follow the steps and apply everything you learned in the first lecture. It might be useful to use the lecture slides to help you with the exercises. Do not try to get stuck on one exercise for too long, if you cannot figure it out with the lecture slides, try to ask your colleagues, or for example search on Google.
+
+## Part 1 - Setup:
+
+1. **Setting up R and RStudio:**
+   - Follow the instructions provided under "Installing R + RStudio" on the course website to download and install R and RStudio.
+   - Create a new folder on your computer for this course (e.g., "Programming in R Course").
+
+(Note: Make sure you install R before RStudio, as RStudio is an integrated development environment (IDE) for R.)
+
+2. **Creating a Project:**
+   - Open RStudio and create a new project within the folder you just created.
+   - Organize your project files and ensure that you have separate folders for input and output files.
+   
+(Hint: check if your folder looks the same as what is shown in the slides)
+
+
+## Part 2 - R Practice:
+
+3. Start a new script within your project, and save the script under the name Assignment_week_1.
+
+4. Start by writing some comments in your script, using the # symbol, for example write a title and the author. Make sure to keep on writing comments above every part of code you write to remember what you were doing, and to help others understand your script.
+```{r}
+# This is an example of a comments
+
+##### If you like this more you can also use more hashtags #####
+```
+
+5. Generate a vector with the name three_months, containing the names of the first three months of the year. (Do not forget to start with a comment before writing your code!)
+
+6. Create a vector named colors with the elements "Red", "Green", and "Blue". Then let R sort the vector alphabetically. 
+
+7. Generate two vectors representing the grades of student 1 and student 2 with the elements "85, 90, 78, 92, 88", and "76, 84, 89, 70, 93" respectively. Calculate the average grade for both students. Also determine the total points earned by both students.
+
+## Part 3 - Applying R:
+8. Think of how you can use R in your day-to-day job at GSS, come up with one specific project you are going to use R for in the future.
+
+9. One of the goals of this training is also to come up with a fun statistic, think of a topic you want to make your fun statistics on.
+
+### Good luck!

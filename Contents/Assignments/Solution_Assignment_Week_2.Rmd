@@ -1,0 +1,171 @@
+---
+title: "Solution Assignment Week 2"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=TRUE, echo = TRUE, warning=FALSE, message = FALSE}
+# Setup
+library(tidyverse)
+library(readxl)
+library(writexl)
+```
+
+
+## Part 1 - R Practice:
+1. **Create a new R script for this assignment, called Assignment_week_2.** Make sure you are working from your project as well!
+```{r}
+# There is no solution to this question, ask a facilitator to check.
+```
+
+2. **Import the population data into your R environment.** 
+   - Write a code for this instead of doing it by using mouse clicks to import it, as you want to make it easy to load the data in the same way every time you work with this script.
+```{r}
+# Importing the population data
+population <- read_xlsx("input/population.xlsx")  
+```
+
+3. **Explore the data:**
+   - Use functions like `head`, `glimpse()`, `str()`, and `summary` to understand the structure and variables of the population data. Provide brief comments on its structure.
+```{r}
+# Inspecting the first 10 rows 
+head(population, 10)
+
+# Using glimpse
+glimpse(population)
+
+# Use str()
+str(population)
+
+# Use summary()
+summary(population)
+```
+The population dataset comprises 308,357 records with eight columns. It includes unique numerical identifiers for individuals nqid and pid, along with information on geographical regions, urban or rural residency, gender, age, marital status, and relationship status.
+
+4. **Find the minimum and maximum age.**
+```{r}
+# Minimum age 
+min_age <- min(population$p02)
+min_age
+
+# Maximum age
+max_age <- max(population$p02)
+max_age
+```
+
+5. **Subset the data for youth population:**
+   - Extract records for individuals aged 15 to 35 years and assign it to a new object. Verify if the "age" variable is of numeric class; if not, convert it to numeric.
+```{r}
+# Checking if age is numeric
+is.numeric(population$p02)
+
+# Changing the class to numeric
+population$p02 <- as.numeric(as.character(population$p02))
+
+# Subsetting age between 15 and 35 years
+youth_pop <- population[population$p02 >= 15 & population$p02 <= 35, ]
+min(youth_pop$p02)
+max(youth_pop$p02)
+nrow(youth_pop)
+
+# Alternative way to subset:
+youth_pop_alt <- subset(population, p02 >= 15 & p02 <= 35)
+nrow(youth_pop_alt)
+
+# The "best" way to subset:
+youth_pop_best <- population %>% 
+  filter(p02 >= 15 & p02 <= 35)
+nrow(youth_pop_best)
+```
+
+6. **Load the education data and print unique categories:**
+   - Print the unique categories of the educational level column. Provide your observations.
+```{r}
+# Loading education dataset
+education <- read_xlsx("input/education.xlsx")
+
+# Inspect the education data
+# Using glimpse
+glimpse(education)
+
+# Check the unique values of p12b
+unique(education$p12b)
+```
+There are 17 unique levels of education including NA category indicating missing.
+
+7. **Merge the education data with the population dataset:**
+   - Use `cbind` to merge the datasets and assign it to a new object. Note any observations.
+```{r}
+# Merging education and population data using cbind
+# Note: this is only possible because the number of rows are the same
+pop_edu <- cbind(education, population)
+
+# Inspect the data
+str(pop_edu)
+```
+The nqid, pid and region columns became duplicated because they were present in both datasets.
+
+8. **Merge the data using unique IDs and common variable:**
+   - Merge the datasets again using an appropriate method and unique IDs (nqid, pid) along with the common variable region. Compare the two merged datasets.
+   - Which method do you think is better, the one from this question or the one from question 7?
+```{r}
+# Merging education and population data using left-join method 
+pop_edu_matched <- population %>% 
+  left_join(education, by = c("nqid","pid", "region"))
+
+# Inspect the data
+str(pop_edu_matched)
+```
+Comparing the first merged datasets to the second, the first has 308,357 records, 14 variables whilst the second has 308,357 but 11 variables. The second method ensures that the data is merged based on a common variable, instead of just merging the first row of the population data with the first row of the education data. This is very important!!
+
+9. **Subset the merged dataset:**
+   - Subset the merged dataset to include population aged 3 years and older.
+```{r}
+# Subset 3 years and older
+education_3yrs_older <- pop_edu_matched[pop_edu_matched$p02 >= 3,]
+nrow(education_3yrs_older)
+
+# Another method to subset is:
+education_3yrs_older_alt <- subset(pop_edu_matched, p02>=3)
+nrow(education_3yrs_older_alt)
+
+# The "best" method to subset is:
+education_3yrs_older_best <- pop_edu_matched %>% 
+  filter(p02 >= 3)
+nrow(education_3yrs_older_best)
+```
+
+10. **Export extracted data:**
+   - Export the data extracted in question 9 to an Excel format.
+```{r}
+# Export the data to Excel
+write_xlsx(education_3yrs_older, "output/education_data.xlsx")
+```
+
+11. **Identify individuals attending with a master’s degree from Greater Accra region:**
+    - Using data from question 8, determine the count of individuals currently attending with a master’s degree from the Greater Accra region.
+```{r}
+# Filter Greater Accra and masters degree - in a not so nice way
+masters_degree_GA <- pop_edu_matched[
+  pop_edu_matched$p12a == "Attending now" & 
+  pop_edu_matched$p12b == "Tertiary - Master?s Degree" & 
+  pop_edu_matched$region == "Greater Accra", 
+  ]
+nrow(masters_degree_GA)
+
+# An alternative way
+mastersdegree_GA_alt <- subset(pop_edu_matched,
+                               p12a == "Attending now" &
+                                 p12b == "Tertiary - Master?s Degree" &
+                                 region == "Greater Accra")
+nrow(mastersdegree_GA_alt)
+
+# The "best" way
+mastersdegree_GA_best <- pop_edu_matched %>% 
+  filter(p12a == "Attending now",
+         p12b == "Tertiary - Master?s Degree",
+         region == "Greater Accra")
+nrow(mastersdegree_GA_best)
+```
+
+### Feel free to reach out to the facilitators with questions!

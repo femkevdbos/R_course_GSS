@@ -1,0 +1,41 @@
+---
+title: "Assignment Week 3"
+date: "Deadline: Before the next session"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+Now you have learnt more and more about R, so this assignment will focus on applying this technique to data. Feel free to play around with the data and try to use different functions and make different aggregations of your data.
+
+Again, remember all the basics you learnt in the previous weeks.
+
+## Part 1 - R Practice:
+1. **Import the population data.**
+
+2. **Filter the dataset:**
+   - Include only rows where the region is one of the following: Western, Greater Accra, Volta, Savannah, Northern, and Ashanti.
+
+3. **Select columns:**
+   - Select the columns region, a11d, and p02 from the dataset.
+
+4. **Rename columns:**
+   - Rename the column urbrur to urban_rural, a11d to sex, and p02 to age.
+
+5. **Group data and calculate mean age:**
+   - Group the data by region and calculate the mean age for each region using the `group_by` and `summarise` functions.
+
+6. **Pivot data:**
+   - Pivot the data to make a wider format with region as columns and mean age as values.
+
+## Part 2 - Applying R:
+7. Use your own dataset which you picked last week, and use piping and functions like rename, group_by, mutate and summarise to create tabulations.
+
+8. Save three different summary tables of your own dataset into one Excel file. Every table should be on a different sheet. 
+  - Make sure that you create tables that tell a story. (For example, total population per region would make sense, but the sum of age by sex does not make any sense.)
+
+### Good luck!

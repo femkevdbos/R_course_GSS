@@ -1,0 +1,35 @@
+---
+title: "Assignment Week 4"
+date: "Deadline: Before the next session"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+It is finally time for visualizations! In this assignment you are asked to make a variety of graphs, to get used to the different types of graphs you can make in R. Try to always start with a quick sketch of what the graph should look like, then create a dataframe with the required data, make the graph, and finally make the graph look pretty.
+
+It is highly encouraged to try to make more graphs yourself, or to adjust graphs to make them look prettier. You can for example use ChatGPT and ask how to change the colors of your bars. Please do not just directly put all these questions into an AI programme, as then you will never actually understand the basics and fully learn how to make graphs yourself.
+
+## Part 1 - R Practice:
+1. **Make a bar graph for average miles per gallon (mpg) by number of cylinders (cyl):**
+   - Using the base R `mtcars` dataset, create a bar graph showing the average miles per gallon for each unique number of cylinders (cyl).
+
+2. **Make a scatter plot for petal length vs petal width with species coloring:**
+   - Use the `iris` dataset in base R to create a scatter plot with petal length on the x-axis and petal width on the y-axis. Color the points based on the species.
+
+3. **Make a line graph for unemployment and population trends over time:**
+   - Using the `economics` dataset, create a line graph with time on the x-axis and two lines representing the trends of unemployment and population over time. Differentiate the lines by color.
+
+4. **Make a box plot for diamond prices distribution by cut, color, and clarity:**
+   - Using the `diamonds` dataset, generate a box plot showing the distribution of diamond prices for each combination of cut and color. Use facet grid to separate the plots based on the diamond's clarity.
+   
+## Part 2 - Applying R:
+6. Use your own dataset to make three different graphs. Make sure that the graphs tell a story!
+
+7. Pick one of the graphs and apply the GSS Theme to it to make sure it is in line with the GSS Styleguide. 
+
+### Good luck!

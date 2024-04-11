@@ -1,0 +1,42 @@
+---
+title: "Assignment Week 5"
+date: "Deadline: Before the next session"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+This is your final assignment already, so here the entire course should be coming together, and you should start to think about how to use R in your day-to-day work, as well as to make a fun statistic. Therefore this assignment is more tailored to everyones personal needs and wants. Make sure you really try to work on a project during this week that will be relevant for your work and which will allow you to keep on using R after this training.
+
+## Part 1 - R Practice:
+We have practiced a lot already, it is now time for the real work! Let's not use example datasets anymore, and theoretical exercises, we will directly apply R to our own work in GSS!
+
+## Part 2 - Applying R:
+1. Go back to your assignment in week 1, in question 8 you came up with a project in your day-to-day work in GSS for which you want to use R. Think about that project again and try to start it in R. 
+  - Load the required data into R and analyse it first
+  - Make some visualisations of the data
+  - Work on your personal goal on how to use R for this project
+  - If you get stuck, identify the exact problem you face and step by step try to solve it
+  - Try to get as far as possible in this project
+  
+2. Write a (maximum 2 pages) plan of which steps you are going to take to really use R in your work such that you will not forget everything you learnt during this course. 
+  - Ensure that there are deadlines for yourself
+  - Identify an output that you will have achieved before the end of June
+  - Identify an output you will have achieved before the end of July
+  - Identify an output you will have achieved before the end of August
+  - Decide on what you will use R for on a daily/weekly basis
+  - Also identify the things you still need to learn in R to be able to achieve this all, and come up with a plan of how you will learn such things.
+  
+3. Before the end of July, you will all be expected to submit one "fun statistic". Use R to analyse the dataset you want to use and to find the interesting statistics. 
+  - Then first try to make a visualization in R using this data
+  - Afterwards, save your aggregated R data specific for this one fun statistic into Excel (this is a specific tabulation)
+  - Finally, use Excel, Canva, Paint, or any other software, to create an aesthetically pleasing fun statistic. 
+You are free to work together with others on this fun statistic, as long as you do use R to analyse the data first.
+
+### Good luck!
+
+#### Note: there will not be answers for this weeks assignment, as the exercises are personal to your and your job in GSS. You will be able, and expected, to discuss your answers in the next training session.

@@ -1,0 +1,110 @@
+---
+title: "Solution Assignment Week 4"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=TRUE, echo = TRUE, warning=FALSE, message = FALSE}
+# Setup
+library(tidyverse)
+library(lubridate)
+library(tseries)
+library(dplyr)
+library(scales)
+```
+
+## Part 1 - R Practice:
+1. **Make a bar graph for average miles per gallon (mpg) by number of cylinders (cyl):**
+   - Using the base R `mtcars` dataset, create a bar graph showing the average miles per gallon for each unique number of cylinders (cyl).
+```{r}
+#Loading data
+data(mtcars)
+
+# Inspect data
+str(mtcars)
+
+# Generate data for the graph: Calculating the avg_mpg per unique number of cylinders
+av_mpg <- mtcars %>% 
+  group_by(cyl) %>% 
+  summarise(avg_mpg = mean(mpg))
+
+# Print the data we will use for the graph
+av_mpg
+
+# Creating a bar graph  using the base package in R
+barplot(av_mpg$avg_mpg, names.arg = av_mpg$cyl, 
+        main = "Average MPG by number of cylinders",
+        xlab = "Number of cylinders", ylab = "Average MPG",
+        col = "salmon", border = "black")
+
+# Now create the same using ggplot
+# ggplot is much easier to use for nice visualizations!
+av_mpg %>% 
+  ggplot(aes(x = as.factor(cyl), y = avg_mpg)) +
+  geom_bar(stat = "identity", fill = "salmon", color = "black") +
+  labs(title = "Average MPG by number of cylinders",
+       x = "Number of cylinders", y = "Average MPG") +
+  theme_minimal()
+```
+
+2. **Make a scatter plot for petal length vs petal width with species coloring:**
+   - Use the `iris` dataset in base R to create a scatter plot with petal length on the x-axis and petal width on the y-axis. Color the points based on the species.
+```{r}
+# Load the data
+data(iris)
+
+# Create plot
+iris %>% 
+  ggplot(aes(x = Petal.Length, y = Petal.Width, color = Species)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Petal Length vs. Petal Width",
+       x = "Petal Length", y = "Petal Width") +
+  theme_classic()
+
+```
+
+3. **Make a line graph for unemployment and population trends over time:**
+   - Using the `economics` dataset, create a line graph with time on the x-axis and two lines representing the trends of unemployment and population over time. Differentiate the lines by color.
+```{r}
+# Load data
+data("economics")
+
+# Inspect the data
+str(economics)
+
+# Create graph
+economics %>% 
+  ggplot(aes(x = date)) +
+  geom_line(aes(y = unemploy, color = "Unemployment"), size = 1) +
+  geom_line(aes(y = pop, color = "Population"), size = 1) +
+  labs(title = "Unemployment and Population Trends Over Time",
+       x = "Year", y = "Number") +
+  scale_color_manual(values = c("Unemployment" = "blue", "Population" = "green")) +
+  scale_y_continuous(labels = comma, 
+                     limits = c(0, max(economics$pop))) +  
+  theme_minimal()
+```
+
+4. **Make a box plot for diamond prices distribution by cut, color, and clarity:**
+   - Using the `diamonds` dataset, generate a box plot showing the distribution of diamond prices for each combination of cut and color. Use facet grid to separate the plots based on the diamond's clarity.
+```{r}
+# Load the data
+data("diamonds")
+
+# Make the graph
+diamonds %>% 
+  ggplot(aes(x = cut, y = price, fill = color)) +
+  geom_boxplot() +
+  theme_light()
+
+# Now add the facet grid
+diamonds %>% 
+  ggplot(aes(x = cut, y = price, fill = color)) +
+  geom_boxplot() +
+  facet_grid(clarity ~ ., scales = "free_y", space = "free_y", switch = "y") +
+  labs(title = "Distribution of Diamond Prices by Cut, Color, and Clarity", x = "Cut", y = "Price") +
+  scale_fill_brewer(palette = "Set3") +
+  theme_minimal()
+```
+
+### Feel free to reach out to the facilitators with questions!

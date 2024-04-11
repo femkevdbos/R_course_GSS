@@ -97,7 +97,7 @@ This course is an introduction to R: focused on teaching you how to **analyse da
 | *Week 3*  | Data Wrangling |
 | *Week 4*  | Data Visualization (pt.1)|
 | *Week 5* | Data Visualization (pt.2)|
-| *Extra* |  Q&A  |
+| *Week 6* |  Q&A  |
 
 ## Outcome
 - New skill of using R

@@ -1,0 +1,55 @@
+---
+title: "Assignment Week 2"
+date: "Deadline: Before the next session"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+This assignment evaluates your understanding of topics covered in week 2, including data loading, inspecting data, subsetting, using functions, dataset merging, and data saving. You have been provided two datasets: population.xlsx and education.xlsx, each representing a 10% sample of the original 2021 Population and Housing Census micro dataset, use this for the assignment.
+
+Do not forget what you learnt last week, for example about the project, starting a new script, and writing comments to keep the script tidy.
+
+## Part 1 - R Practice:
+1. **Create a new R script for this assignment, called Assignment_week_2.** Make sure you are working from your project as well!
+
+2. **Import the population data into your R environment.** 
+   - Write a code for this instead of doing it by using mouse clicks to import it, as you want to make it easy to load the data in the same way every time you work with this script.
+
+3. **Explore the data:**
+   - Use functions like `head`, `glimpse()`, `str()`, and `summary` to understand the structure and variables of the population data. Provide brief comments on its structure.
+
+4. **Find the minimum and maximum age.**
+
+5. **Subset the data for youth population:**
+   - Extract records for individuals aged 15 to 35 years and assign it to a new object. Verify if the "age" variable is of numeric class; if not, convert it to numeric.
+
+6. **Load the education data and print unique categories:**
+   - Print the unique categories of the educational level column. Provide your observations.
+
+7. **Merge the education data with the population dataset:**
+   - Use `cbind` to merge the datasets and assign it to a new object. Note any observations.
+
+8. **Merge the data using unique IDs and common variable:**
+   - Merge the datasets again using an appropriate method and unique IDs (nqid, pid) along with the common variable region. Compare the two merged datasets.
+   - Which method do you think is better, the one from this question or the one from question 7?
+
+9. **Subset the merged dataset:**
+   - Subset the merged dataset to include population aged 3 years and older.
+
+10. **Export extracted data:**
+   - Export the data extracted in question 9 to an Excel format.
+
+11. **Identify individuals attending with a master’s degree from Greater Accra region:**
+    - Using data from question 8, determine the count of individuals currently attending with a master’s degree from the Greater Accra region.
+
+## Part 2 - Applying R:
+12. Pick a dataset you use for your own day-to-day job at GSS, or that you want to use for a fun statistic, and load that dataset into R.
+
+13. Inspect your data and provide some summary statistics on it.
+
+### Good luck!

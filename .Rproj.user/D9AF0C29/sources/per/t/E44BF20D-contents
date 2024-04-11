@@ -22,7 +22,7 @@ This website covers the materials for the course R for Data Analysis for employe
 
 ---
   
-Please note that Edem Titriku helped setting up this course. Moreover, some of the material is adopted from [Steffen Eriksen](https://www.youtube.com/c/SteffensClassroom) (University of Groningen), [Laurent Smeets](https://github.com/Laurent-Smeets-GSS-Account/RGhana) (Ghana Statistical Service), [Gerko Vink](https://github.com/gerkovink/R) (Statistics Denmark), [Stan Koobs](https://www.eur.nl/en/people/stan-koobs) (University of Rotterdam), and online resources.
+Please note that Edem Titriku helped setting up this course. Moreover, some of the material is adopted from [Laurent Smeets](https://github.com/Laurent-Smeets-GSS-Account/RGhana) (Ghana Statistical Service), [Steffen Eriksen](https://www.youtube.com/c/SteffensClassroom) (University of Groningen),  [Gerko Vink](https://github.com/gerkovink/R) (Statistics Denmark), [Stan Koobs](https://www.eur.nl/en/people/stan-koobs) (University of Rotterdam), and online resources.
 
 ---
 # Overview
@@ -42,12 +42,12 @@ Our main goals are to provide you with a solid understanding of R, equip you wit
 ### Course schedule 
 | Week  | Day | Time      | Topic                               | 
 |:----------|:-------------------------|:--------------|:------------------------------------|
-| *Week 1* | Tuesday May 21 |9:00-12:00 | Introduction to R |
-| *Week 2* | Tuesday May 28 |9:00-12:00 | Foundations of R |
-| *Week 3* | Tuesday June 4 |9:00-12:00 | Data Wrangling |
-| *Week 4* | Tuesday June 11 |9:00-12:00 | Data Visualization (pt.1) |
-| *Week 5* | Tuesday June 18 |9:00-12:00 | Data Visualization (pt.2) |
-| *Week 6* | Tuesday June 25 |9:00-12:00 | Q&A |
+| *Week 1* | Thursday May 16 |9:00-12:00 | Introduction to R |
+| *Week 2* | Tuesday May 21 |9:00-12:00 | Foundations of R |
+| *Week 3* | Tuesday May 28 |9:00-12:00 | Data Wrangling |
+| *Week 4* | Tuesday June 4 |9:00-12:00 | Data Visualization (pt.1) |
+| *Week 5* | Tuesday June 11 |9:00-12:00 | Data Visualization (pt.2) |
+| *Week 6* | Tuesday June 18 |9:00-12:00 | Q&A |
 
 # Installing R + RStudio
 
@@ -139,10 +139,10 @@ The data that should be used for the assignments can be found here.
 ## Column 2
 
 ### Solutions to Assignments
-After the weekly deadline, the solution to the assignment will be uploaded here. (This will be after the following lecture.)
+The solution to the assignment will be uploaded here. (This will be after the following lecture.)
 
-<!-- - [Solution Assignment 1](Contents/Assignments/Assignment-Week-One-Solutions.html){target="_blank"} -->
-<!-- - [Solution Assignment 2](Contents/Assignments/Assignment-Week-Two-Solutions.html){target="_blank"} -->
-<!-- - [Solution Assignment 3](Contents/Assignments/Assignment-week-three-solutions.html){target="_blank"} -->
-<!-- - [Solution Assignment 4](Contents/Assignments/Assignment-four-solutions.html){target="_blank"} -->
+<!-- - [Solution Assignment 1](Contents/Assignments/Solution_Assignment_Week 1.html){target="_blank"} -->
+<!-- - [Solution Assignment 2](Contents/Assignments/Solution_Assignment_Week 2.html){target="_blank"} -->
+<!-- - [Solution Assignment 3](Contents/Assignments/Solution_Assignment_Week 3.html){target="_blank"} -->
+<!-- - [Solution Assignment 4](Contents/Assignments/Solution_Assignment_Week 4.html){target="_blank"} -->
 

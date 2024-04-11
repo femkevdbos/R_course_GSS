@@ -1,0 +1,68 @@
+---
+title: "Solutions Assignment Week 1"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Part 2 - R Practice:
+
+3. Start a new script within your project, and save the script under the name Assignment_week_1.
+```{r}
+# There is no solution to this question, ask a facilitator to check.
+```
+
+4. Start by writing some comments in your script, using the # symbol, for example write a title and the author. Make sure to keep on writing comments above every part of code you write to remember what you were doing, and to help others understand your script.
+```{r}
+# Assignment week 1
+# Author: Femke van den Bos
+# Last edited: May 16th 2024
+
+# Exercise 5:
+```
+
+5. Generate a vector with the name three_months, containing the names of the first three months of the year. (Do not forget to start with a comment before writing your code!)
+```{r}
+# Exercise 5: create a vector of the first three months
+three_months <- c("January", "February", "March")
+
+# Print the vector
+three_months
+```
+
+6. Create a vector named colors with the elements "Red", "Green", and "Blue". Then let R sort the vector alphabetically. 
+```{r}
+# Exercise 6: create a vector with Red, Green, Blue
+colors <- c("Red", "Green", "Blue")
+
+# Print the vector
+colors
+
+# Sort the vector
+sort(colors)
+```
+
+7. Generate two vectors representing the grades of student 1 and student 2 with the elements "85, 90, 78, 92, 88", and "76, 84, 89, 70, 93" respectively. Calculate the average grade for both students. Also determine the total points earned by both students.
+```{r}
+# Exercise 7: create vectors of grades of students
+grades_student_1 <- c(85, 90, 78, 92, 88)
+grades_student_2 <- c(76, 84, 89, 70, 93)
+
+# Average grade of both students
+avg_student_1 <- mean(grades_student_1)
+avg_student_1
+avg_student_2 <- mean(grades_student_2)
+avg_student_2
+
+#Total points earned by each student
+total_student_1 <- sum(grades_student_1)
+total_student_2 <- sum(grades_student_2)
+
+# Print total points earned
+print(paste0("Total points by student 1 is ", total_student_1, ", and the total points by student 2 is ", total_student_2, "."))
+```
+
+### Feel free to reach out to the facilitators with questions!

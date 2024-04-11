@@ -1,0 +1,100 @@
+---
+title: "Solution Assignment Week 3"
+author: "GSS Data Analysis Course"
+output: html_document
+---
+
+```{r setup, include=TRUE, echo = TRUE, warning=FALSE, message = FALSE}
+# Setup
+library(tidyverse)
+library(readxl)
+library(writexl)
+```
+
+## Part 1 - R Practice:
+1. **Import the population data.**
+```{r}
+# Importing population data
+population <- read_xlsx("input/population.xlsx") 
+
+# Display first five rows
+head(population,5)
+```
+
+2. **Filter the dataset:**
+   - Include only rows where the region is one of the following: Western, Greater Accra, Volta, Savannah, Northern, and Ashanti.
+```{r}
+# Subsetting the data to include the specified regions
+pop_six_reg <- population %>% 
+  filter(region %in% c("Western","Greater Accra", "Volta", "Savannah", "Northern", "Ashanti"))
+
+# Checking the unique values in the region columns after subsetting
+unique(pop_six_reg$region)
+```
+Alternatively, you can define the vector outside the piped operation. 
+```{r}
+# Creating a vector of the six regions
+six_reg <- c("Western","Greater Accra", 
+                       "Volta", "Savannah", 
+                       "Northern", "Ashanti")
+
+# Subset data to include only the six regions
+pop_six_reg_alt <- population %>% 
+  filter(region %in% six_reg)
+
+# Display the unique regions
+unique(pop_six_reg_alt$region)
+```
+Note that the %in% is used instead of == in filtering when you want to extract a subset of data based on whether certain elements are present in a given vector.
+
+3. **Select columns:**
+   - Select the columns region, a11d, and p02 from the dataset.
+```{r}
+# Subset data to include only region, a11d, and p02
+selected_data <- population %>% 
+  select(region, a11d, p02)
+
+# Checking the columns within the selected data
+colnames(selected_data)
+```
+
+4. **Rename columns:**
+   - Rename the column urbrur to urban_rural, a11d to sex, and p02 to age.
+```{r}
+# Rename the column names
+renamed_data <- population %>% 
+  rename(urban_rural = urbrur,
+         sex = a11d,
+         age = p02)
+
+# Display the column names (you can either use names() or colnames())
+names(renamed_data)
+```
+
+5. **Group data and calculate mean age:**
+   - Group the data by region and calculate the mean age for each region using the `group_by` and `summarise` functions.
+```{r}
+# Finding the mean age by region
+mean_age <- population %>% 
+  mutate(age = as.numeric(p02)) %>% 
+  group_by(region) %>% 
+  summarise(mean_age = mean(age, na.rm = TRUE))
+
+# Print the mean age dataframe
+mean_age
+```
+Remember, we had to convert the age column to numeric because it was loaded as a character. You can use the function typeof() or class() to confirm before converting.
+
+6. **Pivot data:**
+   - Pivot the data to make a wider format with region as columns and mean age as values.
+```{r}
+# Pivot the data into a wide format
+wider_format <- mean_age %>% 
+  pivot_wider(names_from = region, 
+              values_from = mean_age)
+
+# Print the wide format
+wider_format
+```
+
+### Feel free to reach out to the facilitators with questions!
