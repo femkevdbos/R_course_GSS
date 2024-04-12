@@ -122,11 +122,11 @@ Here you can find the assignments for the weekly homework assignments. Please no
 
 The deadline for each assignment is before the next lecture!
 
-- [Assignment 1 (Deadline: TBD)](Contents/Assignments/Week 1 Assignment.pdf)
-- [Assignment 2 (Deadline: TBD)](Contents/Assignments/Week 2 Assignment.pdf)
-- [Assignment 3 (Deadline: TBD)](Contents/Assignments/Week 3 Assignment.pdf)
-- [Assignment 4 (Deadline: TBD)](Contents/Assignments/Week 4 Assignment.pdf)
-- [Assignment 5 (Deadline: TBD)](Contents/Assignments/Week 5 Assignment.pdf)
+- [Assignment 1 (Deadline: TBD)](Contents/Assignments/Assignment_Week_1.html)
+- [Assignment 2 (Deadline: TBD)](Contents/Assignments/Assignment_Week_2.html)
+- [Assignment 3 (Deadline: TBD)](Contents/Assignments/Assignment_Week_3.html)
+- [Assignment 4 (Deadline: TBD)](Contents/Assignments/Assignment_Week_4.html)
+- [Assignment 5 (Deadline: TBD)](Contents/Assignments/Assignment_Week_5.html)
 
 
 ### Data
@@ -141,8 +141,8 @@ The data that should be used for the assignments can be found here.
 ### Solutions to Assignments
 The solution to the assignment will be uploaded here. (This will be after the following lecture.)
 
-<!-- - [Solution Assignment 1](Contents/Assignments/Solution_Assignment_Week 1.html){target="_blank"} -->
-<!-- - [Solution Assignment 2](Contents/Assignments/Solution_Assignment_Week 2.html){target="_blank"} -->
-<!-- - [Solution Assignment 3](Contents/Assignments/Solution_Assignment_Week 3.html){target="_blank"} -->
-<!-- - [Solution Assignment 4](Contents/Assignments/Solution_Assignment_Week 4.html){target="_blank"} -->
+<!-- - [Solution Assignment 1](Contents/Assignments/Solution_Assignment_Week_1.html){target="_blank"} -->
+<!-- - [Solution Assignment 2](Contents/Assignments/Solution_Assignment_Week_2.html){target="_blank"} -->
+<!-- - [Solution Assignment 3](Contents/Assignments/Solution_Assignment_Week_3.html){target="_blank"} -->
+<!-- - [Solution Assignment 4](Contents/Assignments/Solution_Assignment_Week_4.html){target="_blank"} -->
 

@@ -2,7 +2,7 @@
 title: 'Lecture 4'
 author: "Data Visualization (pt.1)"
 date: 
-output:
+output: 
   ioslides_presentation:
     logo: "figures/GSS_logo.png"
     transition: faster
